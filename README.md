@@ -91,8 +91,8 @@ In order to show venv things for python and other configurable things, add this 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 ```
 
-# If you are working in gnome-terminal in ubuntu, you're probably
-# using boring colors. To improve this, try this:
+### Gnome-terminal colors
+If you are working in gnome-terminal in ubuntu, you're probably using boring colors. To improve this, try this:
 
 ```bash
 exec bash #change to bash
