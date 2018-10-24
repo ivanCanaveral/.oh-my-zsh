@@ -1,32 +1,44 @@
 # .oh-my-zsh
-Setup of my oh-my-zsh environment
+Setup of my oh-my-zsh environment. You're supposed to have installed vim using the repo [.vim](https://github.com/ivanCanaveral/.vim) previously. If not, maybe you should ;). In other case, you must install some Nerd Font (and use it as your terminal's font), and git.
+
+If you want to install this config, you can use the file `oh-my-zsh-setup..sh`. I find this file very useful. It executes the following instructions.
 
 ## Installing git and zsh
 
-```
-sudo apt-get install git
+```bash
+sudo apt-get install curl
 sudo apt-get install zsh
+sudo apt-get install dconf-cli
 ```
+
+## Improving the boring gnome-terminal theme
+
+This helps when you want to change themes without much effort.
+
+```bash
+wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh
+```
+
+After execute this line, you will be asked for the number of the coosed theme. For example (43) is cool.
 
 ## zsh by default
+Probably, you'll need to to restart your computer to have this change working.
 
-```
+```bash
 chsh -s $(which zsh)
 ```
 
+This way, you avoid typing `exec zsh` every time you start a shell.
+
 ## Installing oh my zsh
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-## Setting up theme in .zshrc
+## Symlink the .zshrc
 
-Open ~/.zshrc with vim and modify the following line:
-
-```
-ZSH_THEME="agnoster"
-```
+This file keeps the configuration for our oh-my-zsh. We want to have it in a repo, so in this case we will symlink `.zshrc` to `~/.oh-my-zsh/.oh-my-zsh/zshrc` file. This way, we can keep all the changes in this file tracked in the git repository.
 
 ## Some plugins
 
@@ -36,62 +48,27 @@ A lot of plugins are already installed. Others must be installed. For example, s
 
 Autocomplete based on your command history
 
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zs/plugins/zsh-autosuggestions
 ```
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
-```
-* Clone this in the .oh-my-zsh/plugins folder ;)
 
 ### zsh-sintax-highlighting
 
-```
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-```
-* Clone this in the .oh-my-zsh/plugins folder ;)
-
-### Time to modify the .zshrc file again
-
-Go to the line with the plugins and write something line
-
-```
-plugins=(
-  git
-  virtualenv
-  colored-man-pages
-  zsh-autosuggestions
-  zsh-syntax-highlighting
- )
+```bash
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 ```
 
-#### git plugin detail
+### A cool theme: powerlevel9k
 
-- Green: branch if no changes occurred
-- Yellow with a circle icon: untracked files
-- Yellow with a plus icon: files ready to be committed
-
-### Another cool theme: powerlevel9k
-
-```
+```bash
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
-Now, in the .zshrc
-```
-ZSH_THEME="powerlevel9k/powerlevel9k"
-```
+### Python venvs
 
 In order to show venv things for python and other configurable things, add this to the .zshrc
+
 ```
 # For showing venv things in POWERLEVEL9KLINES
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-```
-
-### Gnome-terminal colors
-If you are working in gnome-terminal in ubuntu, you're probably using boring colors. To improve this, try this:
-
-```bash
-exec bash #change to bash
-sudo apt-get install dconf-cli
-wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh
-# the (43) Flat theme is cool
-exec zsh
 ```
