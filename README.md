@@ -20,12 +20,6 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-## Installing powerline fonts
-
-```
-sudo apt install fonts-powerline
-```
-
 ## Setting up theme in .zshrc
 
 Open ~/.zshrc with vim and modify the following line:
