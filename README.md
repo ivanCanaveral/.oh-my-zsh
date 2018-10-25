@@ -6,9 +6,9 @@ If you want to install this config, you can use the file `oh-my-zsh-setup..sh`. 
 ## Installing git and zsh
 
 ```bash
-sudo apt-get install curl
-sudo apt-get install zsh
-sudo apt-get install dconf-cli
+$ sudo apt-get install curl
+$ sudo apt-get install zsh
+$ sudo apt-get install dconf-cli
 ```
 
 ## Improving the boring gnome-terminal theme
@@ -16,7 +16,7 @@ sudo apt-get install dconf-cli
 This helps when you want to change themes without much effort.
 
 ```bash
-wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh
+$ wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh
 ```
 
 After execute this line, you will be asked for the number of the coosed theme. For example (43) is cool.
@@ -25,7 +25,7 @@ After execute this line, you will be asked for the number of the coosed theme. F
 Probably, you'll need to to restart your computer to have this change working.
 
 ```bash
-chsh -s $(which zsh)
+$ chsh -s $(which zsh)
 ```
 
 This way, you avoid typing `exec zsh` every time you start a shell.
@@ -33,7 +33,7 @@ This way, you avoid typing `exec zsh` every time you start a shell.
 ## Installing oh my zsh
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 ## Symlink the .zshrc
@@ -49,26 +49,26 @@ A lot of plugins are already installed. Others must be installed. For example, s
 Autocomplete based on your command history
 
 ```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zs/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zs/plugins/zsh-autosuggestions
 ```
 
 ### zsh-sintax-highlighting
 
 ```bash
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+$ sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 ```
 
 ### A cool theme: powerlevel9k
 
 ```bash
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
 ### Python venvs
 
 In order to show venv things for python and other configurable things, add this to the .zshrc
 
-```
+```vim
 # For showing venv things in POWERLEVEL9KLINES
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 ```
